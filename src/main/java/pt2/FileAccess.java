@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class FileAccess {
+public class FileAccess implements FileAccessSubject {
     private String ruta;
     private String nombreArchivo;
 
@@ -15,5 +15,10 @@ public class FileAccess {
 
     public String readFile() throws IOException {
         return Files.readString(Paths.get(this.ruta + "/" + this.nombreArchivo));
+    }
+
+    //agrego para obtener el nombre del archivo
+    public String nombreArchivo() {
+        return nombreArchivo;
     }
 }
